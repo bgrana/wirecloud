@@ -18,14 +18,18 @@ require the following attributes:
 -   `version`: Current version of the mashable application component.
     It must define starting sequences of numbers separated by dots.
     Moreover, zeros can only be used alone (e.g. 0.1 is valid but 03.2
-    is not). Following a release number, you can have a pre-release tag.
-    A pre-release tag is a serie of letters: a (alpha), b (beta) or rc
-    (release candidate); followed by digits. Pre-release tags make a
-    version be considered older than the version they are appended to.
-    So, revision 2.4 is newer than revision 2.4rc1, which in turn is
-    newer than 2.4b1 or 2.4a1.
+    is not). Following a release number, you can have:
+    - A pre-release tag `[a|b|rc]`: a series of letters: a (alpha), b (beta) or rc
+          (release candidate); followed by digits. Pre-release tags make a
+          version be considered older than the version they are appended to.
+          So, revision 2.4 is newer than revision 2.4rc1, which in turn is
+          newer than 2.4b1 or 2.4a1.
+    - A development tag `-dev`: indicates if the version of the component is
+          in development by adding -dev at the end of the version.
+          Development versions are private to the users who upload it and
+          are replaced if the same version is uploaded again.
 
-These tree fields (`vendor`, `name` and `version`) uniquely identify the
+These three fields (`vendor`, `name` and `version`) uniquely identify the
 mashable application component, therefore there can not be a repetition
 of such identifier in any collection of WireCloud components (including
 widgets, mashups, operators, ...).
