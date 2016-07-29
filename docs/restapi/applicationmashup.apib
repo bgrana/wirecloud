@@ -1116,13 +1116,18 @@ Updates the attributes of a instantiated widget. Only the attributes referenced 
                }
             }
 
-### Upload Mashable Application Components [POST]
+### Upload Mashable Application Components [POST  /api/resources{?public,user_list,group_list}]
 
 Due to this request handles binary content, this request SHOULD support the
 following extra `Content-Types` for the request itself:
 `application/octect-stream` and `multipart/form-data`.
 
 **Used status codes**: 204, 401, 403, 404, 406, 409, 413, 415
+
++ Parameters
+    + public (optional, boolean, `false`) ... boolean indicating if the component will be available to all users
+    + user_list (optional, list, `admin,user1`) ... List of users (separated by commas) who will have access to the component
+    + group_list (optional, list, `grp1,grp2`) ... List of groups (separated by commas) that will have access to the component
 
 + Request (application/octet-stream)
 
@@ -1287,9 +1292,9 @@ following extra `Content-Types` for the request itself:
             ------WebKitFormBoundaryHPwaOXLATyUcGQp8
             Content-Disposition: form-data; name="file"; filename="Wirecloud_Test_1.0.wgt"
             Content-Type: application/octet-stream
-            
+
             ‹Base64 data›
-            
+
             ------WebKitFormBoundaryHPwaOXLATyUcGQp8--
 
 + Response 201 (application/json)
